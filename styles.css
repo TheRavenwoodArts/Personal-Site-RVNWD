@@ -1,0 +1,271 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  :root {
+    --black: #080808;
+    --white: #fefefe;
+    --gray: #565656;
+    --light-light-gray: rgba(120, 118, 118, 0.1);
+    --light-gray: rgba(120, 118, 118, 0.5);
+  
+    --teal: #006060;
+    --violetred: #a2106d;
+    --orange: #ffa500;
+  }
+  
+  html {
+    background-color: var(--light-light-gray);
+  }
+  
+  body {
+    font-family: "Open Sans", "Helvetica Neue", sans-serif;
+    font-size: 1.2em;
+    color: var(--black);
+  }
+  
+  h1 {
+    text-align: center;
+    font-size: 2rem;
+  }
+  
+  form {
+    width: 400px;
+  }
+  
+  /* Code for exercise 01-hello */
+  /* .container {
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: var(--white);
+    padding: 20px;
+    border: 1px solid var(--light-gray);
+    border-radius: 8px;
+  }
+  
+  .img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    border: 2px solid var(--gray);
+  }
+  
+  .bio {
+    text-align: center;
+    line-height: 1.5;
+  } */
+  
+  /* Code for exercise 02-form */
+  form.form-container {
+    width: 400px;
+    padding: 10px;
+    margin: 10px auto;
+    border: 1px solid;
+    border-radius: 4px;
+    font-size: medium;
+  }
+  
+  form.form-container h2 {
+    margin-top: 20px;
+    margin-bottom: 0;
+  }
+  
+  form.form-container h3 {
+    font-weight: normal;
+    margin: 0;
+    margin-bottom: 15px;
+  }
+  
+  form.form-container .form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  form.form-container label {
+    font-weight: bold;
+    width: 150px;
+    text-align: left;
+    margin-right: 10px;
+  }
+  
+  form.form-container fieldset {
+    border: 0;
+    padding: 0;
+    margin: 0;
+  }
+  
+  form.form-container .pronoun-group legend {
+    font-weight: bold;
+  }
+  
+  form.form-container .radio-label {
+    font-weight: normal;
+  }
+  
+  form.form-container input[type="text"],
+  form.form-container input[type="password"],
+  form.form-container input[type="date"] {
+    flex: 1;
+    padding: 2px;
+    border: 1px solid;
+  }
+  
+  .form-container .form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .form-container button[type="submit"],
+  .form-container button[type="reset"] {
+    padding: 12px;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 15px;
+    border: 1px solid;
+  }
+  
+  .form-container button[type="submit"] {
+    background-color: var(--black);
+    color: var(--white);
+  }
+  
+  .form-container button[type="reset"] {
+    background-color: var(--white);
+    color: var(--black);
+  }
+  
+  .form-container button[type="submit"]:hover {
+    background-color: var(--violetred);
+  }
+  
+  .form-container button[type="reset"]:hover {
+    background-color: var(--lightgrey);
+  }
+  * {
+    box-sizing: border-box;
+  }
+  
+  :root {
+    --black: #080808;
+    --white: #fefefe;
+    --gray: #565656;
+    --light-light-gray: rgba(120, 118, 118, 0.1);
+    --light-gray: rgba(120, 118, 118, 0.5);
+    --teal: #006060;
+    --violetred: #a2106d;
+    --orange: #ffa500;
+  }
+  
+  html {
+    background-color: var(--light-light-gray);
+  }
+  
+  body {
+    font-family: "Open Sans", "Helvetica Neue", sans-serif;
+    font-size: 1.2em;
+    color: var(--black);
+  }
+  
+  h1 {
+    text-align: center;
+    font-size: 2rem;
+  }
+  
+  /* Code for exercise 03-starships */
+  
+  /* .btn-group {
+    margin: auto;
+    width: 400px;
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 20px;
+  }
+  
+  .btn {
+    width: 80px;
+    padding: 10px;
+    background-color: var(--black);
+    color: var(--white);
+    border: none;
+    cursor: pointer;
+  }
+  
+  .btn:hover {
+    background-color: var(--violetred);
+  }
+  
+  #results {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .starship-component {
+    display: grid;
+    grid-template-areas:
+      "title cost"
+      "manufacturer manufacturer"
+      "speed cargo"
+      "speed cargo";
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto auto 1fr 1fr;
+    gap: 10px;
+    width: 500px;
+    height: 250px;
+    padding: 10px;
+    background-color: var(--white);
+    border-radius: 10px;
+    border: 1px solid var(--light-gray);
+  }
+  
+  .starship-title {
+    grid-area: title;
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  
+  .starship-cost {
+    grid-area: cost;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: right;
+  }
+  
+  .starship-manufacturer {
+    grid-area: manufacturer;
+    font-size: 1rem;
+    margin-top: -5px;
+  }
+  
+  .starship-speed {
+    grid-area: speed;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    border-right: 1px solid var(--light-gray);
+    padding-right: 10px;
+    align-self: center;
+  }
+  
+  .starship-cargo {
+    grid-area: cargo;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    padding-left: 10px;
+    align-self: center;
+  }
+  
+  .result-text {
+    background-color: var(--white);
+    border-radius: 10px;
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--black);
+  } */
