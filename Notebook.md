@@ -54,3 +54,12 @@ Just to get things going I'm going to bring some initial files that create a for
 These files create a simple form that gets user input and prints it to the console. We will build the entire website from here ;)
 
 ---
+
+## 11/25/2024 - Design
+
+Here's a quick design sketch that captures te aesthetic of the site and some styling. I want the site to mainy highlight my current retro-style game ev project so I think using some pixel art fro mthat as the background is a cool idea.
+
+*Note*: I did this in procreate, which is not great for this sort of thing.
+
+![Quick design sketch of the personal website.](images\WebsiteSketch.png)
+
