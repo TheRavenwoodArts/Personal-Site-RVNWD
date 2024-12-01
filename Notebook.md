@@ -10,7 +10,7 @@ Note: _Revision 1 will be developed from 11/24/2024 to 12/11/2024._
 - [11/25/2024 - Design](#11/25/2024---Design)
 - [11/27/2024 - Figma Design](#11/27/2024---Figma-Design)
 - [11/30/2024 - Navbar and background](#11/30/2024---Navbar-and-background)
-- [12/01/2024 - Profile Pic](#12/01/2024---Profile-Pic)
+- [12/01/2024 - Profile Pic](12/01/2024---Profile-Pic)
 
 ---
 
