@@ -63,3 +63,93 @@ Here's a quick design sketch that captures te aesthetic of the site and some sty
 
 ![Quick design sketch of the personal website.](images\WebsiteSketch.png)
 
+## 11/27/2024 - Figma Design
+
+I decided to go ahead and design the website using Figma so that everything I need is ready to go when I start actual implementation.
+
+![Figma design for the personal website.](images\Figma.png)
+
+## 11/30/2024 - Navbar and background
+
+To get started on the above design I think we should get a simple navbar working that can scroll to the various sections.
+We should classes to make things easier later.
+
+```
+<body>
+    <header class="site-header">
+      <nav class="navbar">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#work" class="nav-link">Work</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+    </header>
+
+    <section id="about" class="about-section">
+      <h1 class="section-title">About Me</h1>
+    </section>
+
+    <section id="work" class="work-section">
+      <h2 class="section-title">Previous Work</h2>
+    </section>
+    
+    <section id="projects" class="projects-section">
+      <h2 class="section-title">Projects</h2>
+    </section>
+
+    <section id="contact" class="contact-section">
+      <h2 class="section-title">Contact</h2>
+    </section>
+  </body>
+```
+
+This is a pretty bland webpage with just the html, so let's add the backgound image and some styling.
+
+```
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-image: url("../images/Clouds.png");
+  background-size: cover; /* Ensure the image covers the entire viewport */
+  background-position: left; /* Center the image */
+  background-attachment: fixed; /* Make the image fixed during scrolling */
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
+}
+
+.nav-link {
+  color: #fff;
+  margin-right: 1rem;
+  text-decoration: none;
+}
+
+section {
+  padding: 2rem;
+  color: #fff;
+  margin-top: 2rem;
+}
+```
+
+Much nicer!!! Now let's add in some simple JavaScript to scroll to the different sections by clicking the navbar links. 
+```
+document.querySelectorAll('.nav-link').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      document.querySelector(this.getAttribute('href')).scrollIntoView({
+        behavior: 'smooth'
+      });
+    });
+  });
+```
+
+Lookin pretty good!
+
+![Initial navbar work for the personal website.](images\SiteUpdate1.png)
