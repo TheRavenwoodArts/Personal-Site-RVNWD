@@ -6,15 +6,17 @@ Note: _Revision 1 will be developed from 11/24/2024 to 12/11/2024._
 
 ### Table of Contents
 
-- [11/24/2024 - First things first](#11/24/2024---First-things-first)
-- [11/25/2024 - Design](#11/25/2024---Design)
-- [11/27/2024 - Figma Design](#11/27/2024---Figma-Design)
-- [11/30/2024 - Navbar and background](#11/30/2024---Navbar-and-background)
-- [12/01/2024 - Profile Pic](12/01/2024---Profile-Pic)
+- [First things first](#First-things-first) - 11/24/2024
+- [Design](#Design) - 11/25/2024
+- [Figma Design](#Figma-Design) - 11/27/2024
+- [Navbar and background](#Navbar-and-background) - 11/30/2024 
+- [Profile Pic](#Profile-Pic) - 12/01/2024
 
 ---
 
-## 11/24/2024 - First things first
+## First things first
+
+**11/24/2024**
 
 The point of this website is to build a personal website that highlight's personal projects using concepts we've learned in Caterina Paun's Intro to WebDev at PSU. I am going to attempt to create something that is more oriented toward my personal game development endeavours by theme-ing the website with elements from LunaLight. I will highlight some of the milestones in that project as well as other projects I have done.
 
@@ -57,7 +59,9 @@ These files create a simple form that gets user input and prints it to the conso
 
 ---
 
-## 11/25/2024 - Design
+## Design
+
+**11/25/2024**
 
 Here's a quick design sketch that captures te aesthetic of the site and some styling. I want the site to mainy highlight my current retro-style game ev project so I think using some pixel art fro mthat as the background is a cool idea.
 
@@ -65,13 +69,17 @@ _Note_: I did this in procreate, which is not great for this sort of thing.
 
 ![Quick design sketch of the personal website.](images\WebsiteSketch.jpg)
 
-## 11/27/2024 - Figma Design
+## Figma Design
+
+**11/27/2024**
 
 I decided to go ahead and design the website using Figma so that everything I need is ready to go when I start actual implementation.
 
 ![Figma design for the personal website.](images\Figma.jpg)
 
-## 11/30/2024 - Navbar and background
+## Navbar and background
+
+**11/30/2024**
 
 To get started on the above design I think we should get a simple navbar working that can scroll to the various sections.
 We should use classes to make things easier later.
@@ -157,7 +165,9 @@ Lookin pretty good!
 
 ![Initial navbar work for the personal website.](images\SiteUpdate1.jpg)
 
-## 12/01/2024 - Profile Pic
+## Profile Pic
+
+**12/01/2024**
 
 As in the Figma design I want the profile pic and name to be in a rounded box (pill shape) over the background such that it sends focus to the pixel art in the background and then name and pic of the person who created it. Which is me in this case ;). The html portion is not terribly complicated:
 
