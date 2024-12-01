@@ -7,6 +7,10 @@ Note: _Revision 1 will be developed from 11/24/2024 to 12/11/2024._
 ### Table of Contents
 
 - [11/24/2024 - First things first](#11/24/2024---First-things-first)
+- [11/25/2024 - Design](#11/25/2024---Design)
+- [11/27/2024 - Figma Design](#11/27/2024---Figma-Design)
+- [11/30/2024 - Navbar and background](#11/30/2024---Navbar-and-background)
+- [12/01/2024 - Profile Pic](#12/01/2024---Profile-Pic)
 
 ---
 
@@ -23,7 +27,7 @@ To check the boxes around concepts learned in WebDev this site should be built u
 - JavaScript
 - GitHub pages for deployment
 
-### High Level Implementation Plan
+**High Level Implementation Plan**
 
 **Concept**: _This will be a single-page scrolling website with a fixed navigation bar that alows the user to jump to sections._
 
