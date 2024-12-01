@@ -110,9 +110,9 @@ body {
   margin: 0;
   font-family: Arial, sans-serif;
   background-image: url("../images/Clouds.png");
-  background-size: cover; /* Ensure the image covers the entire viewport */
-  background-position: left; /* Center the image */
-  background-attachment: fixed; /* Make the image fixed during scrolling */
+  background-size: cover;
+  background-position: left;
+  background-attachment: fixed;
 }
 
 .navbar {
