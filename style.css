@@ -5,16 +5,28 @@ body {
   background-size: cover;
   background-position: left;
   background-attachment: fixed;
+  min-width: 700px;
 }
 
 .navbar {
   position: fixed;
   top: 0;
   width: 100%;
-  background: rgba(0, 0, 0, 0.7);
-  color: #fff;
-  padding: 1rem;
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 2.5rem;
+}
+
+.nav-left {
+  padding-left: 2rem;
+}
+
+.nav-right {
+  display: flex;
+  gap: 4rem;
+  padding-right: 7rem;
 }
 
 .nav-link {
@@ -24,11 +36,78 @@ body {
 }
 
 .title-section {
-    height: 400;
+  height: 70vh;
+  display: flex;
+  justify-content: right;
+  margin-top: 3rem;
+  margin-right: 10rem;
+  align-items: center;
 }
 
-.about-section {
+.title-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 100px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  max-width: 80%;
+  min-width: 400px;
+}
+
+.profile-pic {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-left: 1.5rem;
+  object-fit: cover;
+}
+
+.title-text {
+  text-align: center;
+  padding-left: 1rem;
+}
+
+.title-text h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  color: #f0caca;
+}
+
+.title-text p {
+  margin: 0;
+  color: #a07d7d;
+  font-size: 1rem;
+}
+
+.section {
+  display: flex;
+  justify-content: center;
   padding: 2rem;
   color: #fff;
   margin-top: 2rem;
+}
+
+.about-section,
+.work-section,
+.projects-section,
+.contact-section {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.about-box,
+.work-box,
+.project-box,
+.contact-box {
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 20px;
+  padding: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  width: 95%;
+  color: #fff;
+  box-sizing: border-box;
+  text-align: left;
 }
