@@ -9,7 +9,7 @@ Note: _Revision 1 will be developed from 11/24/2024 to 12/11/2024._
 - [First things first](#First-things-first) - 11/24/2024
 - [Design](#Design) - 11/25/2024
 - [Figma Design](#Figma-Design) - 11/27/2024
-- [Navbar and background](#Navbar-and-background) - 11/30/2024 
+- [Navbar and background](#Navbar-and-background) - 11/30/2024
 - [Profile Pic](#Profile-Pic) - 12/01/2024
 
 ---
@@ -69,6 +69,8 @@ _Note_: I did this in procreate, which is not great for this sort of thing.
 
 ![Quick design sketch of the personal website.](images\WebsiteSketch.jpg)
 
+---
+
 ## Figma Design
 
 **11/27/2024**
@@ -76,6 +78,8 @@ _Note_: I did this in procreate, which is not great for this sort of thing.
 I decided to go ahead and design the website using Figma so that everything I need is ready to go when I start actual implementation.
 
 ![Figma design for the personal website.](images\Figma.jpg)
+
+---
 
 ## Navbar and background
 
@@ -164,6 +168,8 @@ document.querySelectorAll('.nav-link').forEach(anchor => {
 Lookin pretty good!
 
 ![Initial navbar work for the personal website.](images\SiteUpdate1.jpg)
+
+---
 
 ## Profile Pic
 
@@ -273,4 +279,115 @@ Then we can add some initial CSS styling,
   box-sizing: border-box;
   text-align: left;
 }
+```
+
+---
+
+## About Section
+
+**12/03/2024**
+
+There are three somewhat tricky things I want to accomplish in the about section that we may use in the other sections. First we need to split the box into two columns so that we can have text on the left and images on the right. Then, I want to load in the text using JavaScript so that our html doesn't get overloaded with text. Finally, I want to add a component that allows you to flip through images on the right side of the text.
+
+**Columns in the box**
+
+To Accomplish this we can use flex. Each of our "columns" will be set to flex: 1 to ensure they take up equal space in the box. Additionally we can easily use media queries to set our text and images to display vertically when the screen size is narrow.
+
+**Load text file**
+
+Conveniently we can use the fetch api to do this. This also allows for easy error handling in cases that the file does not load. When you pass a relative file path like 'about.txt' to fetch, it looks for the file relative to the location of our html file being served. E.g, since our site.html is in the root folder, fetch('about.txt') looks for the file at oursite.com/about.txt
+
+```
+function loadTextFromFile(filePath, targetSelector) {
+  fetch(filePath)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Failed to fetch file: " + response.statusText);
+      }
+      return response.text();
+    })
+    .then((text) => {
+      const targetElement = document.querySelector(targetSelector);
+      if (targetElement) {
+        targetElement.textContent = text;
+      } else {
+        console.error(`Target element not found: ${targetSelector}`);
+      }
+    })
+    .catch((error) => {
+      console.error("Error loading text from file:", error);
+    });
+}
+```
+
+Now we need a way to know when to load the text so let's add an event listener. We can listen for when the page finishes loading. The browser will send a 'load' flag on the window object when everything has loaded.
+
+```
+window.addEventListener("load", () => {
+  loadTextFromFile("about.txt", ".about-paragraph");
+});
+```
+
+**Image carousel**
+
+I thought it would be cool to show images related to the about section. The user shoudl be able to flip through the images. To accomplish this we can code in the images to our html section under two class types, current-image and hidden-image. the carousel effect will be created by setting the class value of each image, e.g. the image we want to see is set to current and the rest are set to hidden. To flip through the images we will create a previous button and a next button. We can handle this logic in JavaScript by creating event listeners to get the images and buttons, detect button clicks and define a function to set the current and hidden images.
+
+```
+// Image carousel
+document.addEventListener("DOMContentLoaded", () => {
+  const images = document.querySelectorAll(".about-image img");
+  const prevBtn = document.querySelector(".prev-btn");
+  const nextBtn = document.querySelector(".next-btn");
+
+  let currentIndex = 0;
+
+  // Function to update image visibility
+  function updateImages() {
+    images.forEach((img, index) => {
+      img.classList.toggle("current-image", index === currentIndex);
+      img.classList.toggle("hidden-image", index !== currentIndex);
+    });
+  }
+
+  // Event listeners for navigation buttons
+  prevBtn.addEventListener("click", () => {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    updateImages();
+  });
+
+  nextBtn.addEventListener("click", () => {
+    currentIndex = (currentIndex + 1) % images.length;
+    updateImages();
+  });
+
+  updateImages();
+});
+```
+
+**Side-quest**
+
+I had a cool idea that the title section could scroll up at a slower rate than the about section until they are touching. As it scrolls up the opacity should decrease until the component "disappears". I think this will make the site feel a little more dynamic to the user and could also be used for a parallaxing background at some point!
+
+We need to get seom eitems and values using query selectors, the title box, about section, the window scroll Y value and the upward bound of the about section. As we scroll the view we can explicitly translate the title box Y value at a slower rate as well as decrease the opacity. This way once the title box meets the about section the title box will be fully transparent and move with the about section. Initially this worked but broke my navigation bar. After some troubleshooting I found that the I neededto explicitly set the title box translate to zero when not scrolling.
+
+```
+// dynamic scrolling
+document.addEventListener("scroll", () => {
+  const titleBox = document.querySelector(".title-box");
+  const aboutSection = document.querySelector("#about");
+  const scrollY = window.scrollY;
+  const aboutTop = aboutSection.getBoundingClientRect().top + window.scrollY;
+  const slowScrollRate = 0.5;
+
+  // move title-box if it's above the viewport and not yet touching about-section
+  if (scrollY < aboutTop) {
+    // Adjust position adn opacity
+    titleBox.style.transform = `translateY(${scrollY * slowScrollRate}px)`;
+    const opacity = 1 - scrollY / aboutTop;
+    titleBox.style.opacity = Math.max(opacity, 0);
+  } else {
+    titleBox.style.transform = "translateY(0)";
+    titleBox.style.opacity = 0;
+  }
+});
 ```
