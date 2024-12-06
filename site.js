@@ -50,9 +50,11 @@ function loadTextFromFile(filePath, targetSelector) {
     });
 }
 
-// Load the "About Me" text when page loads
+// Load text files when page loads
 window.addEventListener("load", () => {
   loadTextFromFile("about.txt", ".about-paragraph");
+  loadTextFromFile("project1.txt", "#project1-paragraph");
+  loadTextFromFile("project2.txt", "#project2-paragraph");
 });
 
 // Image carousel

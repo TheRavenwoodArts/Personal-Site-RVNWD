@@ -11,6 +11,8 @@ Note: _Revision 1 will be developed from 11/24/2024 to 12/11/2024._
 - [Figma Design](#Figma-Design) - 11/27/2024
 - [Navbar and background](#Navbar-and-background) - 11/30/2024
 - [Profile Pic](#Profile-Pic) - 12/01/2024
+- [About Section](#About-Section) - 12/03/2024
+- [Project Section](#Project-Section) - 12/06/2024
 
 ---
 
@@ -391,3 +393,15 @@ document.addEventListener("scroll", () => {
   }
 });
 ```
+
+---
+
+## Project Section
+
+**12/06/2024**
+
+For the projects section I want to highlight two personal projects, maybe include this website as a third. I want to organize each project similarly to how I did the previous section except with multiple stacked sections. I should just be able to copy the main components from the about section and repurpose them. I'll have text on the left and an interactive component on the right. That said, The interactive coponent will differ with each section.
+
+**Project 1 - My Retro Game**
+
+The first project highlight will be for my personal retro game project and include an imbedded you tube video as the interactive component.
