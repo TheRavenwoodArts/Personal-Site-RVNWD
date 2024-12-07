@@ -1,3 +1,6 @@
-Hey! This section is about my retro game project!
+This game project is what got me into software development!
 
-Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+LunaLight is a sci-fi fantasy rogue-ish platformer built in the retro style of our favoite games from the late 80's and early 90's. 
+
+As someone with a background in art, music and engineering I needed a way to put all of my interests together. Game development is exactly what I was looking for!
+In this project I am the writer, designer, pixel artist, music composer and software developer. The game is built using the C# framework MonoGame and will hopefully be available to demo very soon!

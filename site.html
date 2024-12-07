@@ -41,35 +41,50 @@
           />
         </div>
       </section>
-
+      
       <section id="about" class="about-section">
         <div class="about-box">
           <!-- First Column: About Text -->
-          <div class="about-text">
-            <h1 class="about-title">About Jesse,</h1>
-            <p class="about-paragraph">Loading...</p>
-          </div>
-          <!-- Second Column: Images -->
-          <div class="about-image">
-            <img
-              src="images/Figma.jpg"
-              alt="About Me Images"
-              class="current-image"
-            />
-            <img
-              src="images/Clouds.png"
-              alt="About me images"
-              class="hidden-image"
-            />
-            <img
-              src="images/SiteUpdate1.jpg"
-              alt="About me images"
-              class="hidden-image"
-            />
-            <div class="about-buttons">
-              <button class="prev-btn">&larr;</button>
-              <button class="next-btn">&rarr;</button>
-            </div>
+          <div class="grid-container">
+            <h1 class="about-box-title">About</h1>
+
+            <section class="grid-item">
+              <div class="about-text">
+                <h1 class="about-title">About me,</h1>
+                <p class="about-paragraph">Loading...</p>
+              </div>
+              <!-- Second Column: Images -->
+              <div class="about-image">
+                <div class="image-container">
+                  <img
+                    src="images/LunaLightConcept.png"
+                    alt="About Me Images"
+                    class="current-image"
+                  />
+                  <p class="image-title">LunaLight Concept Work by @toastydoodles</p>
+                </div>
+                <div class="image-container hidden-image">
+                  <img
+                    src="images/Clouds.png"
+                    alt="About Me Images"
+                  />
+                  <p class="image-title">Cloud Photography</p>
+                </div>
+                <div class="image-container hidden-image">
+                  <img
+                    src="images/SiteUpdate1.jpg"
+                    alt="About Me Images"
+                  />
+                  <p class="image-title">Website Update Mockup</p>
+                </div>
+                
+                <div class="about-buttons">
+                  <button class="prev-btn">&larr;</button>
+                  <button class="next-btn">&rarr;</button>
+                </div>
+              </div>
+              
+            </section>
           </div>
         </div>
       </section>
@@ -83,7 +98,7 @@
             <section class="grid-item">
               <!-- Project 1 First Column: Project Overview Text -->
               <div class="project-text">
-                <h1 class="project-title">LunaLight - A Retro Game Project,</h1>
+                <h1 class="project-title">LunaLight - A Retro Game Project</h1>
                 <p id="project1-paragraph" class="project-paragraph">
                   Loading...
                 </p>
@@ -109,7 +124,7 @@
               <!-- Project 2 First Column: Project Overview Text -->
               <div class="project-text">
                 <h1 class="project-title">
-                  EightBiterator - A Retro Game Melody Generator,
+                  EightBiterator - A Retro Game Melody Generator
                 </h1>
                 <p id="project2-paragraph" class="project-paragraph">
                   Loading...
@@ -118,6 +133,23 @@
               <!-- Project 2 Second Column: Form -->
               <div class="project2-form-container">
                 <h1 class="project-title">EightBiterator</h1>
+              </div>
+            </section>
+
+            <!-- Project 3 -->
+            <section class="grid-item">
+              <!-- Project 2 First Column: Project Overview Text -->
+              <div class="project-text">
+                <h1 class="project-title">
+                  Capstone - A Mobile App for the CRN
+                </h1>
+                <p id="project3-paragraph" class="project-paragraph">
+                  Loading...
+                </p>
+              </div>
+              <!-- Project 2 Second Column: Form -->
+              <div class="project3-video-container">
+                <h1 class="project-title">Capstone Demo</h1>
               </div>
             </section>
           </div>
@@ -182,11 +214,38 @@
 
       <section id="contact" class="contact-section">
         <div class="contact-box">
-          <h2 class="section-title">Contact</h2>
+          <h1 class="contact-section-title">ᛜ We'd love to hear from you! ᛜ</h1>
+          <form
+            id="contact-form"
+            method="POST"
+            action="https://formspree.io/f/xwpkjpal"
+            class="contact-form"
+          >
+            <label for="email">Your Email:</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Enter your email"
+              required
+            />
+            <label for="message">Your Message:</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              placeholder="Enter your message"
+              required
+            ></textarea>
+            <div class="form-buttons">
+              <button type="submit">Submit</button>
+              <button type="reset">Clear</button>
+            </div>
+          </form>
         </div>
       </section>
 
-      <section id="title" class="title-section"></section>
+      <section class="page-bottom-section"></section>
     </div>
   </body>
 </html>

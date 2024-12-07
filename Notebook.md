@@ -14,6 +14,7 @@ Note: _Revision 1 will be developed from 11/24/2024 to 12/11/2024._
 - [About Section](#About-Section) - 12/03/2024
 - [Project Section](#Project-Section) - 12/06/2024
 - [Previous Work Section](#Previous-Work-Section) - 12/07/2024
+- [Contact Section](#Contact-Section) - 12/07/2024
 
 ---
 
@@ -588,4 +589,92 @@ and add the following CSS to create a nice effect when hovering above each card.
 }
 ```
 
+---
 
+## Contact Section
+
+**12/07/2024**
+
+Here the user should be prompted to enter their email and a message if they would like to collaborate or work. 
+
+We will use a simple form that allows input for an email and a message. The form will have a submit button and reset button a well a validation. Submitting the message should validate user input and send an email to my preferred email with their contact info and message. Resetting should clear the form.
+
+So how do we send an email from the form? We also need to think about deployment to github pages. Here is a good stack about email options when deploying to GH pages. 
+
+- [Stack Overflow - Email from GitHub Pages](https://stackoverflow.com/questions/24348223/send-email-from-static-page-hosted-on-github-pages)
+
+In this various people discuss options and honestly I thinkthe best option would be to use a third party service. 
+
+Here are some options:
+
+- [Formspree](https://formspree.io/) - Free for < 50 emails per month - a little more concise
+- [Postmark](https://postmarkapp.com/) - Free for < 100 emails per month - pretty robust functionality
+
+I am going to try Formspree. Creating an account and setting up a form server is super easy!
+
+Once set up it gives the server URL and method:
+
+`action="https://formspree.io/f/xwpkjpal"`
+
+`method="POST"`
+
+We can now build our `html` form section and include our email server configuration.
+
+```
+<section id="contact" class="contact-section">
+  <div class="contact-box">
+    <h2 class="section-title">Contact</h2>
+    <form id="contact-form" method="POST" action="https://formspree.io/f/xwpkjpal" class="contact-form">
+      <label for="email">Your Email:</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email" required>
+      
+      <label for="message">Your Message:</label>
+      <textarea id="message" name="message" rows="5" placeholder="Enter your message" required></textarea>
+      
+      <div class="form-buttons">
+        <button type="submit">Submit</button>
+        <button type="reset">Clear</button>
+      </div>
+    </form>
+  </div>
+</section>
+```
+
+This works really well just as html however there are some things that I think need to be fixed.
+
+- Successful submission redirects to a formspree confirmation screen.
+- When returning to our site, the form is not cleared
+
+Formspree includes an option to disable the redirect if you upgade to a paid account.. we don't want to do that. Instead we can fix these issues by taking control of what happens on submit action via JavaScript. We can submit the form using the fetch API and catch the response. We will want to handle potential errors as well as communciate to the user success or fail. We will use a simple alert message for both. On success, we will reset the form.  
+
+```
+// On contact submit
+document.getElementById("contact-form").addEventListener("submit", async function (event) {
+  // Take control of form submission
+  event.preventDefault();
+  const form = event.target;
+  const formData = new FormData(form);
+  try {
+    // Submit the form data using the Fetch API and catch response
+    const response = await fetch(form.action, {
+      method: form.method,
+      body: formData,
+      headers: {
+        Accept: "application/json",
+      },
+    });
+    if (response.ok) {
+      // Success! give user a message
+      alert("Thank you! Your message has been sent.");
+      form.reset(); // Clear the form
+    } else {
+      // Fail :( give user a message
+      alert("Oops! There was a problem submitting your form.");
+    }
+  } catch (error) {
+    // Log any errors
+    console.error("Error:", error); 
+    alert("There was a problem submitting your form. Please try again later.");
+  }
+});
+```
