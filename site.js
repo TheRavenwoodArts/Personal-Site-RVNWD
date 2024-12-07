@@ -10,6 +10,7 @@ document.querySelectorAll(".nav-link").forEach((anchor) => {
 
 // dynamic scrolling
 document.addEventListener("scroll", () => {
+  const navBar = document.querySelector(".navbar");
   const titleBox = document.querySelector(".title-box");
   const aboutSection = document.querySelector("#about");
   const scrollY = window.scrollY;
@@ -18,10 +19,12 @@ document.addEventListener("scroll", () => {
 
   // move title-box if it's above the viewport and not yet touching about-section
   if (scrollY < aboutTop) {
-    // Adjust position adn opacity
+    const opacity = scrollY / aboutTop;
+    // adjust opacity of navbar
+    navBar.style.opacity = Math.min(0.7 + opacity, 1);
+    // Adjust position and opacity of title box
     titleBox.style.transform = `translateY(${scrollY * slowScrollRate}px)`;
-    const opacity = 1 - scrollY / aboutTop;
-    titleBox.style.opacity = Math.max(opacity, 0);
+    titleBox.style.opacity = Math.max(1 - opacity, 0);
   } else {
     titleBox.style.transform = "translateY(0)";
     titleBox.style.opacity = 0;
@@ -52,9 +55,12 @@ function loadTextFromFile(filePath, targetSelector) {
 
 // Load text files when page loads
 window.addEventListener("load", () => {
-  loadTextFromFile("about.txt", ".about-paragraph");
-  loadTextFromFile("project1.txt", "#project1-paragraph");
-  loadTextFromFile("project2.txt", "#project2-paragraph");
+  loadTextFromFile("text/about.txt", ".about-paragraph");
+  loadTextFromFile("text/project1.txt", "#project1-paragraph");
+  loadTextFromFile("text/project2.txt", "#project2-paragraph");
+  loadTextFromFile("text/airship.txt", "#airship-text");
+  loadTextFromFile("text/jama.txt", "#jama-text");
+  loadTextFromFile("text/intel.txt", "#intel-text");
 });
 
 // Image carousel

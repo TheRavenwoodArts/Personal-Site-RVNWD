@@ -1,0 +1,7 @@
+Extended Engineering Services
+
+At Jama I got to work with the talented folk's who design and develop software solutions to solve unique use cases and implement feature improvment.
+I was given the challenging task of creating a tool that could copy the configuration data from one Jama instance to another in order to improve the admin user experience. 
+I learned their application and systems thouroughly and worked extensively with Jama's API. After successful completion I was able to demo and deliver the tool.    
+
+ᛜ

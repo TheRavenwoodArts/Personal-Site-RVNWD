@@ -13,6 +13,7 @@ Note: _Revision 1 will be developed from 11/24/2024 to 12/11/2024._
 - [Profile Pic](#Profile-Pic) - 12/01/2024
 - [About Section](#About-Section) - 12/03/2024
 - [Project Section](#Project-Section) - 12/06/2024
+- [Previous Work Section](#Previous-Work-Section) - 12/07/2024
 
 ---
 
@@ -520,4 +521,71 @@ Ok, firstly the I have set some important functionality within the URL itself,
 In this section I want to showcase a really cool program I built that generates eight-bit retro game music melody samples. A user can input various attributes to customize the meody and EightBiterator will generate a melody based on those parameters.
 
 To showcase this I would like to create a user form that allows the user to input the parameters and the hit a button that says "generate". As the program runs it will give some indication as to what it is doing and play each waveform. It will then prompt the user if they woudl like to save the generated wav file.
+
+*This is actually going to be quite difficult I think... To be continued...*
+
+
+---
+
+## Previous Work Section
+
+**12/07/2024**
+
+For this section I am going to keep things relatively simple. I also think ths will be a good case for the use of cards. There will be three cards that give a brief overview of my experiences at a few of my favorite past work experiences. In addition each card wil act as a button to open a link to the relevant linked-in page for each of the work experiences. 
+
+```
+<section id="work" class="work-section">
+  <div class="work-box">
+    <h2 class="work-section-title">Previous Work</h2>
+    <div class="work-grid">
+      <!-- Airship Card 1 -->
+      <div class="work-card">
+        <img src="images/airship.png" alt="Airship Software Icon" class="work-card-image">
+        <h3 class="work-card-title">Software Development Intern</h3>
+        <p id="airship-text" class="work-card-text">Loading...</p>
+      </div>
+      <!-- Jama Card 2 -->
+      <div class="work-card">
+        <img src="images/jama.png" alt="Jama Software Icon" class="work-card-image">
+        <h3 class="work-card-title">Software Development Intern</h3>
+        <p id="jama-text" class="work-card-text">Loading...</p>
+      </div>
+      <!-- Intel Card 3 -->
+      <div class="work-card">
+        <img src="images/intel.png" alt="Intel Icon" class="work-card-image">
+        <h3 class="work-card-title">Lead Engineering Technician</h3>
+        <p id="intel-text" class="work-card-text">Loading...</p>
+      </div>
+    </div>
+  </div>
+</section>
+```
+
+To make each card a link I can add an `<a>` tag element, 
+
+```
+<a href="link_to_linkedin" target="_blank" class="work-card-link">
+
+...rest of card html
+
+</a>
+
+```
+
+and add the following CSS to create a nice effect when hovering above each card.
+
+
+```
+.work-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: transform 0.2s ease-in-out;
+}
+
+.work-card-link:hover .work-card {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+```
+
 

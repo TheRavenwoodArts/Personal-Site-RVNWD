@@ -1,0 +1,7 @@
+Web Engineering
+
+At airship I was fortunate to experience both front end and back end development. 
+While in front end I got to work on many components of their in-app experience editor. 
+While in back end I got to develop a notification flow that spanned many of the services and infrastructure acros airhips code base. Our team continuously innovates the back-end to front-end software that makes this possible using languages such as Java, Python and JavaScript.
+
+ᛜ

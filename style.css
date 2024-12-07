@@ -8,6 +8,12 @@ body {
   min-width: 768px;
 }
 
+.page-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
 .navbar {
   position: fixed;
   top: 0;
@@ -15,7 +21,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 1);
   padding: 2.5rem;
   z-index: 10;
 }
@@ -52,6 +58,7 @@ body {
 }
 
 .section {
+  max-width: 1440px;
   display: flex;
   justify-content: center;
   padding: 2rem;
@@ -73,7 +80,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 1);
   border-radius: 100px;
   margin-top: 15rem;
   padding: 0.75rem;
@@ -114,6 +121,7 @@ body {
   display: flex;
   justify-content: center;
   width: 100%;
+  max-width: 1440px;
 }
 
 /* About box */
@@ -214,7 +222,7 @@ button:hover {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
-  background: rgba(42, 15, 59, 0.8);
+  background: rgba(11, 35, 48, 0.8);
   padding: 2rem;
   border-radius: 20px;
   color: #ffe8e8;
@@ -236,7 +244,7 @@ button:hover {
 }
 
 .project-box-title {
-  text-align: left;
+  text-align: center;
   color: #ffe8e8;
 }
 
@@ -285,9 +293,76 @@ button:hover {
   position: relative;
 }
 
-/* ----- */
+/* Previous Work */
 
-.work-box,
+.work-box {
+  margin-top: 10rem;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 20px;
+  padding: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  width: 95%;
+  color: #ffe8e8;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+.work-section-title {
+  text-align: center;
+  color: #ffe8e8;
+  padding: 1rem;
+}
+
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  justify-items: center;
+}
+
+.work-card {
+  background: rgba(11, 35, 48, 0.8);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  text-align: center;
+  padding: 1rem;
+  transition: transform 0.2s ease-in-out;
+}
+
+.work-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: transform 0.2s ease-in-out;
+}
+
+.work-card-link:hover .work-card {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  transform: translateY(-10px);
+}
+
+.work-card-image {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+}
+
+.work-card-title {
+  font-size: 1.5rem;
+  margin: 1rem 0;
+  color: #ffe8e8;
+}
+
+.work-card-text {
+  font-size: 1rem;
+  color: #ffe8e8;
+  line-height: 1.5;
+  white-space: pre-wrap;
+}
+
+/* Contact Form */
+
 .contact-box {
   margin-top: 10rem;
   background: rgba(0, 0, 0, 0.8);
@@ -302,7 +377,21 @@ button:hover {
 
 /* Media Queries */
 
-@media (max-width: 850px) {
+@media (min-width: 1440px) {
+  .page-container {
+    padding: 0;
+  }
+
+  .navbar {
+    justify-content: center;
+  }
+
+  .nav-left {
+    padding-right: 12rem;
+  }
+}
+
+@media (max-width: 1000px) {
   .about-box {
     flex-direction: column;
     text-align: center;
@@ -312,6 +401,10 @@ button:hover {
   .project-box {
     flex-direction: column;
     text-align: center;
+  }
+
+  .work-grid {
+    grid-template-columns: repeat(auto-fit, minmax(510px, 1fr));
   }
 
   .grid-item {
