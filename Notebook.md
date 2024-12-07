@@ -112,7 +112,7 @@ We should use classes to make things easier later.
     <section id="projects" class="projects-section">
       <h2 class="section-title">Projects</h2>
     </section>
-
+    
     <section id="contact" class="contact-section">
       <h2 class="section-title">Contact</h2>
     </section>
@@ -402,6 +402,122 @@ document.addEventListener("scroll", () => {
 
 For the projects section I want to highlight two personal projects, maybe include this website as a third. I want to organize each project similarly to how I did the previous section except with multiple stacked sections. I should just be able to copy the main components from the about section and repurpose them. I'll have text on the left and an interactive component on the right. That said, The interactive coponent will differ with each section.
 
+To accomplish stacking the different projet sections I am going to introduce some grid organization into the projects section. Withe simple CSS we can achieve a nice staked layout within our projects section.
+
+**CSS**
+```
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  width: 100%;
+}
+
+.grid-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  background: rgba(42, 15, 59, 0.8);
+  padding: 2rem;
+  border-radius: 20px;
+  color: #ffe8e8;
+  align-items: center;
+}
+```
+**HTML**
+```
+    <section id="projects" class="projects-section">
+      <div class="project-box">
+        <div class="grid-container">
+          <h1 class="project-box-title">Personal Projects</h1>
+          
+          <!-- Project 1 -->
+          <section class="grid-item">
+            <!-- Project 1 First Column: Project Overview Text -->
+            <div class="project-text">
+              <h1 class="project-title">LunaLight - A Retro Game Project,</h1>
+              <p id="project1-paragraph" class="project-paragraph">
+                Loading...
+              </p>
+            </div>
+            <!-- Project 1 Second Column: Video -->
+            <div class="project1-video-container">
+              <h1 class="project-title">LunaLight - Teaser</h1>
+            </div>
+          </section>
+          
+          <!-- Project 2 -->
+          <section class="grid-item">
+            <!-- Project 2 First Column: Project Overview Text -->
+            <div class="project-text">
+              <h1 class="project-title">
+                EightBiterator - A Retro Game Melody Generator,
+              </h1>
+              <p id="project2-paragraph" class="project-paragraph">
+                Loading...
+              </p>
+            </div>
+            <!-- Project 2 Second Column: Images -->
+            <div class="project2-form-container">
+              <h1 class="project-title">EightBiterator</h1>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+```
+
+Now let's get into the interactive project components
+
 **Project 1 - My Retro Game**
 
-The first project highlight will be for my personal retro game project and include an imbedded you tube video as the interactive component.
+The first project highlight will be for my personal retro game project and include an imbedded you tube video as the interactive component. To help with this I'll be referencing som eof the infomation here: [HTML YouTube Videos](https://www.w3schools.com/html/html_youtube.asp).
+
+So we'll be using a component called `iframe` which allows us to embed video and set many useful attributes. 
+
+As it turns out, if you click share on a YouTube video there is on option for "embed"! You can simply copy and paste it into your HTML!
+
+Let's break down some of the less obvious attributes we are copying and embedding, for starters, it does use iframe.
+
+```
+<iframe
+  width="560"
+  height="315"
+  src="https://www.youtube.com/embed/J_KjVaEGNk4?si=O0-429xP-P2r7JSx&autoplay=1&loop=1&playlist=J_KjVaEGNk4&mute=1"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen>
+</iframe>
+```
+
+Ok, firstly the I have set some important functionality within the URL itself,
+
+**Source URL** `src="https://www.youtube.com/embed/J_KjVaEGNk4?si=O0-429xP-P2r7JSx&autoplay=1&loop=1&playlist=J_KjVaEGNk4&mute=1"`
+
+- `autoplay=1`: Makes the video play automatically.
+- `loop=1`: Enables continuous looping of the video.
+- `playlist=OUR_VIDEO_ID`: Ensures looping by identifying the video as a playlist of one.
+- `mute=1`: Starts the video muted to satisfy browser autoplay policies.
+
+**Allow list** `allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"`
+
+- `accelerometer`: Allows device motion data (e.g., for interactive videos).
+- `autoplay`: Enables automatic playback of the video.
+- `clipboard-write`: Allows the iframe to write to the clipboard.
+- `encrypted-media`: Permits encrypted content to play.
+- `gyroscope`: Allows access to gyroscope data for interactive experiences.
+- `picture-in-picture`: Allows the video to play in a smaller floating window outside the iframe.
+- `web-share`: Supports web sharing features.
+
+**Referrer Policy** `referrerpolicy="strict-origin-when-cross-origin"`
+
+- `strict-origin-when-cross-origin`: Sends only the origin (not the full URL) as the referrer when navigating cross-origin, enhancing privacy.
+
+**Project 2 - EightBiterator**
+
+In this section I want to showcase a really cool program I built that generates eight-bit retro game music melody samples. A user can input various attributes to customize the meody and EightBiterator will generate a melody based on those parameters.
+
+To showcase this I would like to create a user form that allows the user to input the parameters and the hit a button that says "generate". As the program runs it will give some indication as to what it is doing and play each waveform. It will then prompt the user if they woudl like to save the generated wav file.
+
