@@ -15,6 +15,7 @@ Note: _Revision 1 will be developed from 11/24/2024 to 12/11/2024._
 - [Project Section](#Project-Section) - 12/06/2024
 - [Previous Work Section](#Previous-Work-Section) - 12/07/2024
 - [Contact Section](#Contact-Section) - 12/07/2024
+- [Project Section Continued](#Project-Section-Continued) - 12/08/2024
 
 ---
 
@@ -678,3 +679,29 @@ document.getElementById("contact-form").addEventListener("submit", async functio
   }
 });
 ```
+
+---
+
+## Project Section Continued
+
+**12/08/2024**
+
+**Capstone**
+
+I've decided to include my capstone project as one of the personal proejcts in this section. This will involve a video of the demo that I will share as a YouTube video and then embed here in the Website. We can set this up excatly the same way as our first project!
+
+**EightBiterator Continued**
+
+Although this would be really cool I've decided it is outside the scope of this project :(.
+
+---
+
+## Parallaxing Background
+
+**12/08/2024**
+
+Another fun idea I had that is defintely within the scope is to create a parallaxing background. I think this will give a really cool user experience and highlight my love of game development.
+
+As the user scrolls to the bottom of the page there will be layered background elements that move at different speeds giving the effect that the view is descending into a pixel at view of the background. The parallaxing will give a depth and movement effect that will be fun for the user experience.
+
+We have already done some of the work for this with our dynamic scrolling. 

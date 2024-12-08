@@ -301,22 +301,7 @@ button:hover {
 
 /* Project 2 */
 
-.project2-form-container {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  height: 520px;
-  width: 100%;
-  overflow: hidden;
-  border-radius: 10px;
-  position: relative;
-}
-
-/* Project 3 */
-
-.project3-video-container {
+.project2-video-container {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -328,7 +313,7 @@ button:hover {
   position: relative;
 }
 
-.project3-video {
+.project2-video {
   width: 100%;
   height: 100%;
   border-radius: 10px;
