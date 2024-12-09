@@ -115,7 +115,7 @@ We should use classes to make things easier later.
     <section id="projects" class="projects-section">
       <h2 class="section-title">Projects</h2>
     </section>
-    
+
     <section id="contact" class="contact-section">
       <h2 class="section-title">Contact</h2>
     </section>
@@ -408,6 +408,7 @@ For the projects section I want to highlight two personal projects, maybe includ
 To accomplish stacking the different projet sections I am going to introduce some grid organization into the projects section. Withe simple CSS we can achieve a nice staked layout within our projects section.
 
 **CSS**
+
 ```
 .grid-container {
   display: grid;
@@ -427,13 +428,15 @@ To accomplish stacking the different projet sections I am going to introduce som
   align-items: center;
 }
 ```
+
 **HTML**
+
 ```
     <section id="projects" class="projects-section">
       <div class="project-box">
         <div class="grid-container">
           <h1 class="project-box-title">Personal Projects</h1>
-          
+
           <!-- Project 1 -->
           <section class="grid-item">
             <!-- Project 1 First Column: Project Overview Text -->
@@ -448,7 +451,7 @@ To accomplish stacking the different projet sections I am going to introduce som
               <h1 class="project-title">LunaLight - Teaser</h1>
             </div>
           </section>
-          
+
           <!-- Project 2 -->
           <section class="grid-item">
             <!-- Project 2 First Column: Project Overview Text -->
@@ -476,7 +479,7 @@ Now let's get into the interactive project components
 
 The first project highlight will be for my personal retro game project and include an imbedded you tube video as the interactive component. To help with this I'll be referencing som eof the infomation here: [HTML YouTube Videos](https://www.w3schools.com/html/html_youtube.asp).
 
-So we'll be using a component called `iframe` which allows us to embed video and set many useful attributes. 
+So we'll be using a component called `iframe` which allows us to embed video and set many useful attributes.
 
 As it turns out, if you click share on a YouTube video there is on option for "embed"! You can simply copy and paste it into your HTML!
 
@@ -524,8 +527,7 @@ In this section I want to showcase a really cool program I built that generates 
 
 To showcase this I would like to create a user form that allows the user to input the parameters and the hit a button that says "generate". As the program runs it will give some indication as to what it is doing and play each waveform. It will then prompt the user if they woudl like to save the generated wav file.
 
-*This is actually going to be quite difficult I think... To be continued...*
-
+_This is actually going to be quite difficult I think... To be continued..._
 
 ---
 
@@ -533,7 +535,7 @@ To showcase this I would like to create a user form that allows the user to inpu
 
 **12/07/2024**
 
-For this section I am going to keep things relatively simple. I also think ths will be a good case for the use of cards. There will be three cards that give a brief overview of my experiences at a few of my favorite past work experiences. In addition each card wil act as a button to open a link to the relevant linked-in page for each of the work experiences. 
+For this section I am going to keep things relatively simple. I also think ths will be a good case for the use of cards. There will be three cards that give a brief overview of my experiences at a few of my favorite past work experiences. In addition each card wil act as a button to open a link to the relevant linked-in page for each of the work experiences.
 
 ```
 <section id="work" class="work-section">
@@ -563,7 +565,7 @@ For this section I am going to keep things relatively simple. I also think ths w
 </section>
 ```
 
-To make each card a link I can add an `<a>` tag element, 
+To make each card a link I can add an `<a>` tag element,
 
 ```
 <a href="link_to_linkedin" target="_blank" class="work-card-link">
@@ -575,7 +577,6 @@ To make each card a link I can add an `<a>` tag element,
 ```
 
 and add the following CSS to create a nice effect when hovering above each card.
-
 
 ```
 .work-card-link {
@@ -596,15 +597,15 @@ and add the following CSS to create a nice effect when hovering above each card.
 
 **12/07/2024**
 
-Here the user should be prompted to enter their email and a message if they would like to collaborate or work. 
+Here the user should be prompted to enter their email and a message if they would like to collaborate or work.
 
 We will use a simple form that allows input for an email and a message. The form will have a submit button and reset button a well a validation. Submitting the message should validate user input and send an email to my preferred email with their contact info and message. Resetting should clear the form.
 
-So how do we send an email from the form? We also need to think about deployment to github pages. Here is a good stack about email options when deploying to GH pages. 
+So how do we send an email from the form? We also need to think about deployment to github pages. Here is a good stack about email options when deploying to GH pages.
 
 - [Stack Overflow - Email from GitHub Pages](https://stackoverflow.com/questions/24348223/send-email-from-static-page-hosted-on-github-pages)
 
-In this various people discuss options and honestly I thinkthe best option would be to use a third party service. 
+In this various people discuss options and honestly I thinkthe best option would be to use a third party service.
 
 Here are some options:
 
@@ -628,10 +629,10 @@ We can now build our `html` form section and include our email server configurat
     <form id="contact-form" method="POST" action="https://formspree.io/f/xwpkjpal" class="contact-form">
       <label for="email">Your Email:</label>
       <input type="email" id="email" name="email" placeholder="Enter your email" required>
-      
+
       <label for="message">Your Message:</label>
       <textarea id="message" name="message" rows="5" placeholder="Enter your message" required></textarea>
-      
+
       <div class="form-buttons">
         <button type="submit">Submit</button>
         <button type="reset">Clear</button>
@@ -646,7 +647,7 @@ This works really well just as html however there are some things that I think n
 - Successful submission redirects to a formspree confirmation screen.
 - When returning to our site, the form is not cleared
 
-Formspree includes an option to disable the redirect if you upgade to a paid account.. we don't want to do that. Instead we can fix these issues by taking control of what happens on submit action via JavaScript. We can submit the form using the fetch API and catch the response. We will want to handle potential errors as well as communciate to the user success or fail. We will use a simple alert message for both. On success, we will reset the form.  
+Formspree includes an option to disable the redirect if you upgade to a paid account.. we don't want to do that. Instead we can fix these issues by taking control of what happens on submit action via JavaScript. We can submit the form using the fetch API and catch the response. We will want to handle potential errors as well as communciate to the user success or fail. We will use a simple alert message for both. On success, we will reset the form.
 
 ```
 // On contact submit
@@ -674,7 +675,7 @@ document.getElementById("contact-form").addEventListener("submit", async functio
     }
   } catch (error) {
     // Log any errors
-    console.error("Error:", error); 
+    console.error("Error:", error);
     alert("There was a problem submitting your form. Please try again later.");
   }
 });
@@ -700,8 +701,12 @@ Although this would be really cool I've decided it is outside the scope of this 
 
 **12/08/2024**
 
-Another fun idea I had that is defintely within the scope is to create a parallaxing background. I think this will give a really cool user experience and highlight my love of game development.
+Another fun idea I had that is defintely within the scope is to create a parallax background. I think this will give a really cool user experience and highlight my love of art and game development.
 
-As the user scrolls to the bottom of the page there will be layered background elements that move at different speeds giving the effect that the view is descending into a pixel at view of the background. The parallaxing will give a depth and movement effect that will be fun for the user experience.
+As the user scrolls to the bottom of the page there will be layered background elements that move at different speeds giving the effect that the view is descending into a pixel art view of the background. The parallaxing will give a depth and movement effect that will be fun for the user experience.
 
-We have already done some of the work for this with our dynamic scrolling. 
+We have already done some of the work for this with our dynamic scrolling.
+
+**The plan**
+
+We are going to create additional _background_ layers that will be layered on top of the actual background. We will update our JavaScript scroll event listener to control the scroll speed of each of these layers. Finally we will use CSS to ensure the layers are styled correctly to get our parallax effect.

@@ -14,22 +14,51 @@ document.addEventListener("DOMContentLoaded", () => {
     const navBar = document.querySelector(".navbar");
     const titleBox = document.querySelector(".title-box");
     const aboutSection = document.querySelector("#about");
+    const contactSection = document.querySelector("#contact");
     const scrollY = window.scrollY;
-    const aboutTop = aboutSection.getBoundingClientRect().top + window.scrollY;
+    const aboutTop = aboutSection.getBoundingClientRect().top + scrollY;
+    const contactTop = contactSection.getBoundingClientRect().top + scrollY;
     const slowScrollRate = 0.5;
 
-    // move title-box if it's above the viewport and not yet touching about-section
+    // Get viewport height for parallax background offsets
+    const viewportHeight = window.innerHeight;
+
+    // Move title-box if it's above the viewport and not yet touching about-section
     if (scrollY < aboutTop) {
-      const opacity = scrollY / aboutTop;
-      // adjust opacity of navbar
-      navBar.style.opacity = Math.min(0.7 + opacity, 1);
-      // Adjust position and opacity of title box
+      const opacity1 = scrollY / aboutTop;
       titleBox.style.transform = `translateY(${scrollY * slowScrollRate}px)`;
-      titleBox.style.opacity = Math.max(1 - opacity, 0);
+      titleBox.style.opacity = Math.max(1 - opacity1, 0);
     } else {
       titleBox.style.transform = "translateY(0)";
       titleBox.style.opacity = 0;
     }
+
+    // Adjust navbar opacity when below the contact section
+    const contactBottom = contactTop + contactSection.offsetHeight;
+    if (scrollY > contactBottom) {
+      // Calculate opacity based on how far below the contact section we are
+      const fadeDistance = 100;
+      const distanceBelow = scrollY - contactBottom;
+      const opacity2 = Math.max(1 - distanceBelow / fadeDistance, 0);
+      navBar.style.opacity = opacity2;
+    } else {
+      navBar.style.opacity = 1;
+    }
+
+    // Parallax background scroll rates
+    const body = document.body;
+    const bridgeScrollRate = 0.4;
+    const treesScrollRate = 0.5;
+    const castleScrollRate = 0.7;
+    const cloudsScrollRate = 0.9;
+
+    body.style.backgroundPosition = `
+      left ${scrollY * bridgeScrollRate + viewportHeight * 3.05}px, 
+      left ${scrollY * treesScrollRate + viewportHeight * 2.55}px,
+      left ${scrollY * castleScrollRate + viewportHeight * 1.5}px,
+      left ${scrollY * cloudsScrollRate + viewportHeight * 0.4}px, 
+      left 0px
+    `;
   });
 
   // Function to load text from a file into an html component
