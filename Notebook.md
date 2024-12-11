@@ -813,10 +813,12 @@ Possible Solution:
 ```
   <body
       style="
-        background-image: url('images/Moon.jpg');
+        background-image: url('images/Moon.png');
         background-size: cover;
         background-repeat: no-repeat;
         background-attachment: fixed;
       "
     >
 ```
+
+This worked.. phew..
