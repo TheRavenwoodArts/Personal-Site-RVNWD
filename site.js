@@ -15,15 +15,17 @@ document.addEventListener("DOMContentLoaded", () => {
     const titleBox = document.querySelector(".title-box");
     const aboutSection = document.querySelector("#about");
     const contactSection = document.querySelector("#contact");
+    const creditsSection = document.querySelector("#credits");
+    const parallaxlayer1 = document.querySelector(".layer-1");
+    const parallaxlayer2 = document.querySelector(".layer-2");
+    const parallaxlayer3 = document.querySelector(".layer-3");
+    
     const scrollY = window.scrollY;
     const aboutTop = aboutSection.getBoundingClientRect().top + scrollY;
     const contactTop = contactSection.getBoundingClientRect().top + scrollY;
+    const sectionTop = creditsSection.offsetTop;
     const slowScrollRate = 0.5;
-
-    // Get viewport height for parallax background offsets
-    const viewportHeight = window.innerHeight;
-
-    // Move title-box if it's above the viewport and not yet touching about-section
+    
     if (scrollY < aboutTop) {
       const opacity1 = scrollY / aboutTop;
       titleBox.style.transform = `translateY(${scrollY * slowScrollRate}px)`;
@@ -32,33 +34,18 @@ document.addEventListener("DOMContentLoaded", () => {
       titleBox.style.transform = "translateY(0)";
       titleBox.style.opacity = 0;
     }
-
-    // Adjust navbar opacity when below the contact section
-    const contactBottom = contactTop + contactSection.offsetHeight;
-    if (scrollY > contactBottom) {
-      // Calculate opacity based on how far below the contact section we are
-      const fadeDistance = 100;
-      const distanceBelow = scrollY - contactBottom;
-      const opacity2 = Math.max(1 - distanceBelow / fadeDistance, 0);
-      navBar.style.opacity = opacity2;
+    
+    if (scrollY > contactTop) {
+      const opacity2 = (scrollY - contactTop) / (document.body.scrollHeight - contactTop);
+      navBar.style.opacity = Math.max(1 - opacity2, 0.5);
     } else {
       navBar.style.opacity = 1;
     }
-
-    // Parallax background scroll rates
-    const body = document.body;
-    const bridgeScrollRate = 0.4;
-    const treesScrollRate = 0.5;
-    const castleScrollRate = 0.7;
-    const cloudsScrollRate = 0.9;
-
-    body.style.backgroundPosition = `
-      left ${scrollY * bridgeScrollRate + viewportHeight * 3.05}px, 
-      left ${scrollY * treesScrollRate + viewportHeight * 2.55}px,
-      left ${scrollY * castleScrollRate + viewportHeight * 1.5}px,
-      left ${scrollY * cloudsScrollRate + viewportHeight * 0.4}px, 
-      left 0px
-    `;
+      
+    const relativeScrollY = sectionTop - scrollY;
+    parallaxlayer1.style.transform = `translateY(${relativeScrollY * 0.2}px)`;
+    parallaxlayer2.style.transform = `translateY(${relativeScrollY * 0.4}px)`;
+    parallaxlayer3.style.transform = `translateY(${relativeScrollY * 0.6}px)`;
   });
 
   // Function to load text from a file into an html component
@@ -120,12 +107,10 @@ document.addEventListener("DOMContentLoaded", () => {
   document
     .getElementById("contact-form")
     .addEventListener("submit", async function (event) {
-      // Take control of form submission
       event.preventDefault();
       const form = event.target;
       const formData = new FormData(form);
       try {
-        // Submit the form data using the Fetch API and catch response
         const response = await fetch(form.action, {
           method: form.method,
           body: formData,
@@ -134,15 +119,12 @@ document.addEventListener("DOMContentLoaded", () => {
           },
         });
         if (response.ok) {
-          // Success! give user a message
           alert("Thank you! Your message has been sent.");
-          form.reset(); // Clear the form
+          form.reset();
         } else {
-          // Fail :( give user a message
           alert("Oops! There was a problem submitting your form.");
         }
       } catch (error) {
-        // Log any errors
         console.error("Error:", error);
         alert(
           "There was a problem submitting your form. Please try again later."

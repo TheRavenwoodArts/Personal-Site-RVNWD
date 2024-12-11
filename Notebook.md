@@ -710,3 +710,7 @@ We have already done some of the work for this with our dynamic scrolling.
 **The plan**
 
 We are going to create additional _background_ layers that will be layered on top of the actual background. We will update our JavaScript scroll event listener to control the scroll speed of each of these layers. Finally we will use CSS to ensure the layers are styled correctly to get our parallax effect.
+
+First I tried adding additional layers to the body however this proved difficult to control the position on various screen sizes. 
+
+

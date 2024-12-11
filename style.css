@@ -1,20 +1,17 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background-image: url("../images/Bridge.png"), url("../images/Trees.png"),
-    url("../images/Castle.png"), url("../images/Clouds.png"),
-    url("../images/Moon.png");
-  background-size: auto, auto, auto, auto, cover;
-  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
-  background-attachment: scroll, scroll, scroll, scroll, fixed;
-  background-position: left 300vh, left 300vh, left 300vh, left 350vh, left top;
+  background-image: url("../images/Moon.png");
+  background-size: cover;
+  background-position: left;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   min-width: 768px;
 }
 
 .page-container {
   max-width: 1440px;
   margin: 0 auto;
-  padding: 0 1rem;
 }
 
 .navbar {
@@ -79,25 +76,7 @@ body {
   align-items: center;
 }
 
-.page-bottom-section {
-  height: 90vh;
-  margin-top: 3rem;
-}
 
-.credits-section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.credits-box {
-  display: flex;
-  background: rgba(0, 0, 0, 1);
-  border-radius: 100px;
-  width: 400px;
-  padding: 10px;
-  margin-bottom: 2rem;
-}
 
 .title-box {
   display: flex;
@@ -410,6 +389,10 @@ button:hover {
 
 /* Contact Form */
 
+.contact-section {
+  overflow: visible;
+}
+
 .contact-box {
   margin-top: 10rem;
   background: rgba(0, 0, 0, 0.8);
@@ -472,6 +455,60 @@ button[type="reset"] {
   color: white;
 }
 
+/* Credits Section - parallax background */
+
+.credits-section {
+  position: relative;
+  display: flex;
+  height: 100vh;
+  min-width: 768px;
+  justify-content: center;
+  align-items: center;
+  overflow: visible;
+}
+
+.credits-section .parallax-layer {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.credits-box {
+  display: flex;
+  background: rgba(0, 0, 0, 1);
+  border-radius: 100px;
+  width: 400px;
+  padding: 10px;
+  margin-bottom: 5rem;
+}
+
+.parallax-layer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: left;
+  background-repeat: no-repeat;
+  min-width: 768px;
+  z-index: -1;
+}
+
+.layer-1 {
+  background-image: url('images/Clouds.png');
+  top: 0;
+}
+
+.layer-2 {
+  background-image: url('images/Trees.png');
+  top: 0;
+}
+
+.layer-3 {
+  background-image: url('images/Bridge.png');
+  top: 0;
+}
+
 /* Media Queries */
 
 @media (min-width: 1440px) {
@@ -499,7 +536,7 @@ button[type="reset"] {
     flex-direction: column;
     text-align: center;
   }
-
+  
   .work-grid {
     grid-template-columns: repeat(auto-fit, minmax(510px, 1fr));
   }
@@ -515,13 +552,20 @@ button[type="reset"] {
   .about-image {
     margin-top: 1rem;
   }
-
+  
   .nav-left {
     padding-left: 0rem;
   }
-
+  
   .nav-right {
     gap: 1rem;
     padding-right: 5rem;
   }
 }
+
+@media (max-width: 768px) {
+  .parallax-layer {
+    height: 120%;
+  }
+}
+
