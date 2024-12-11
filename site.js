@@ -19,13 +19,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const parallaxlayer1 = document.querySelector(".layer-1");
     const parallaxlayer2 = document.querySelector(".layer-2");
     const parallaxlayer3 = document.querySelector(".layer-3");
-    
+
     const scrollY = window.scrollY;
     const aboutTop = aboutSection.getBoundingClientRect().top + scrollY;
     const contactTop = contactSection.getBoundingClientRect().top + scrollY;
     const sectionTop = creditsSection.offsetTop;
     const slowScrollRate = 0.5;
-    
+
     if (scrollY < aboutTop) {
       const opacity1 = scrollY / aboutTop;
       titleBox.style.transform = `translateY(${scrollY * slowScrollRate}px)`;
@@ -34,14 +34,15 @@ document.addEventListener("DOMContentLoaded", () => {
       titleBox.style.transform = "translateY(0)";
       titleBox.style.opacity = 0;
     }
-    
+
     if (scrollY > contactTop) {
-      const opacity2 = (scrollY - contactTop) / (document.body.scrollHeight - contactTop);
+      const opacity2 =
+        (scrollY - contactTop) / (document.body.scrollHeight - contactTop);
       navBar.style.opacity = Math.max(1 - opacity2, 0.5);
     } else {
       navBar.style.opacity = 1;
     }
-      
+
     const relativeScrollY = sectionTop - scrollY;
     parallaxlayer1.style.transform = `translateY(${relativeScrollY * 0.2}px)`;
     parallaxlayer2.style.transform = `translateY(${relativeScrollY * 0.4}px)`;
@@ -75,7 +76,6 @@ document.addEventListener("DOMContentLoaded", () => {
     loadTextFromFile("text/about.txt", ".about-paragraph");
     loadTextFromFile("text/project1.txt", "#project1-paragraph");
     loadTextFromFile("text/project2.txt", "#project2-paragraph");
-    loadTextFromFile("text/project3.txt", "#project3-paragraph");
     loadTextFromFile("text/airship.txt", "#airship-text");
     loadTextFromFile("text/jama.txt", "#jama-text");
     loadTextFromFile("text/intel.txt", "#intel-text");
