@@ -16,6 +16,8 @@ Note: _Revision 1 will be developed from 11/24/2024 to 12/11/2024._
 - [Previous Work Section](#Previous-Work-Section) - 12/07/2024
 - [Contact Section](#Contact-Section) - 12/07/2024
 - [Project Section Continued](#Project-Section-Continued) - 12/08/2024
+- [Parallaxing Background](#Parallaxing-Background) - 12/10/2024
+- [Deployment](#Deployment) - 12/11/2024
 
 ---
 
@@ -756,4 +758,65 @@ We will control the different scroll rates using JavaScript. We just need to add
     parallaxlayer2.style.transform = `translateY(${relativeScrollY * 0.4}px)`;
     parallaxlayer3.style.transform = `translateY(${relativeScrollY * 0.6}px)`;
   });
+```
+
+## Deployment
+
+**12/11/2024**
+
+To deploy our website we are going to use GitHub pages. Deployment through pages is straightforward and easy.
+
+On GitHub in your repository
+
+1. Make repository public.
+2. Navigate to Settings -> Pages
+3. Choose "Deploy form branch"
+4. Set to main and /root
+5. Click save.
+
+There are further customizations and tools you can use but for now we will keep it at it's simplest form.
+
+Once deployed, you will recieve a link to your deployed website. If changes are made to the repository Github will automatically rebuild and deploy your website with the updated changes.
+
+**Troubelshooting**
+
+For our website, initial deployment was not displaying our background image... what the heck? We are setting our background image in our CSS file in the body element. This is the only image being set this way and every other asset is loading. Here is the error we get when inspecting the page.
+
+`Failed to load resource: the server responded with a status of 404 () Moon.jpg:1`
+
+Here is our current CSS where we are setting the background:
+
+```
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-image: url("/images/Moon.jpg");
+  background-size: cover;
+  background-position: left;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-width: 768px;
+}
+```
+
+Failed troubleshooting attempts:
+
+- verified the file path and can not seem to find a problem there..
+- tried re-placing the file.. still not working.
+- tried converting the file type, `png` -> `jpg`
+- tried using absolute path `../images/Moon.jpg`
+
+Possible Solution:
+
+- Moved background styling out of the CSS file and into the HTML file to align with working images.
+
+```
+  <body
+      style="
+        background-image: url('images/Moon.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+      "
+    >
 ```
