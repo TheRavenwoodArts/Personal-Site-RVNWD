@@ -711,6 +711,49 @@ We have already done some of the work for this with our dynamic scrolling.
 
 We are going to create additional _background_ layers that will be layered on top of the actual background. We will update our JavaScript scroll event listener to control the scroll speed of each of these layers. Finally we will use CSS to ensure the layers are styled correctly to get our parallax effect.
 
-First I tried adding additional layers to the body however this proved difficult to control the position on various screen sizes. 
+First I tried adding additional layers to the body however this proved difficult to control the position on various screen sizes.
 
+Ultimately I decided to add another section to the bottom of the page that will include the different parallax layers. This will be our "credits" section and as th euser scrolls down into it the different layers will come into view with paralax effect giving a sense of depth.
 
+We will control the different scroll rates using JavaScript. We just need to add a few things to what we had before.
+
+```
+// dynamic scrolling
+  document.addEventListener("scroll", () => {
+    const navBar = document.querySelector(".navbar");
+    const titleBox = document.querySelector(".title-box");
+    const aboutSection = document.querySelector("#about");
+    const contactSection = document.querySelector("#contact");
+    const creditsSection = document.querySelector("#credits");
+    const parallaxlayer1 = document.querySelector(".layer-1");
+    const parallaxlayer2 = document.querySelector(".layer-2");
+    const parallaxlayer3 = document.querySelector(".layer-3");
+
+    const scrollY = window.scrollY;
+    const aboutTop = aboutSection.getBoundingClientRect().top + scrollY;
+    const contactTop = contactSection.getBoundingClientRect().top + scrollY;
+    const sectionTop = creditsSection.offsetTop;
+    const slowScrollRate = 0.5;
+
+    if (scrollY < aboutTop) {
+      const opacity1 = scrollY / aboutTop;
+      titleBox.style.transform = `translateY(${scrollY * slowScrollRate}px)`;
+      titleBox.style.opacity = Math.max(1 - opacity1, 0);
+    } else {
+      titleBox.style.transform = "translateY(0)";
+      titleBox.style.opacity = 0;
+    }
+
+    if (scrollY > contactTop) {
+      const opacity2 = (scrollY - contactTop) / (document.body.scrollHeight - contactTop);
+      navBar.style.opacity = Math.max(1 - opacity2, 0.5);
+    } else {
+      navBar.style.opacity = 1;
+    }
+
+    const relativeScrollY = sectionTop - scrollY;
+    parallaxlayer1.style.transform = `translateY(${relativeScrollY * 0.2}px)`;
+    parallaxlayer2.style.transform = `translateY(${relativeScrollY * 0.4}px)`;
+    parallaxlayer3.style.transform = `translateY(${relativeScrollY * 0.6}px)`;
+  });
+```

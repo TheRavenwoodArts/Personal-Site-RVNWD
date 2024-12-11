@@ -76,8 +76,6 @@ body {
   align-items: center;
 }
 
-
-
 .title-box {
   display: flex;
   align-items: center;
@@ -495,17 +493,17 @@ button[type="reset"] {
 }
 
 .layer-1 {
-  background-image: url('images/Clouds.png');
+  background-image: url("images/Clouds.png");
   top: 0;
 }
 
 .layer-2 {
-  background-image: url('images/Trees.png');
+  background-image: url("images/Trees.png");
   top: 0;
 }
 
 .layer-3 {
-  background-image: url('images/Bridge.png');
+  background-image: url("images/Bridge.png");
   top: 0;
 }
 
@@ -536,7 +534,7 @@ button[type="reset"] {
     flex-direction: column;
     text-align: center;
   }
-  
+
   .work-grid {
     grid-template-columns: repeat(auto-fit, minmax(510px, 1fr));
   }
@@ -552,11 +550,11 @@ button[type="reset"] {
   .about-image {
     margin-top: 1rem;
   }
-  
+
   .nav-left {
     padding-left: 0rem;
   }
-  
+
   .nav-right {
     gap: 1rem;
     padding-right: 5rem;
@@ -568,4 +566,3 @@ button[type="reset"] {
     height: 120%;
   }
 }
-
