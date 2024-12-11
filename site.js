@@ -15,14 +15,13 @@ document.addEventListener("DOMContentLoaded", () => {
       let startTime = null;
 
       function easeOutCubic(t) {
-        // Custom easing function for gradual slowdown
         return 1 - Math.pow(1 - t, 3);
       }
 
       function scrollAnimation(currentTime) {
         if (!startTime) startTime = currentTime;
         const timeElapsed = currentTime - startTime;
-        const progress = Math.min(timeElapsed / duration, 1); // Ensure progress doesn't exceed 1
+        const progress = Math.min(timeElapsed / duration, 1);
         const easeProgress = easeOutCubic(progress);
         window.scrollTo(0, startPosition + distance * easeProgress);
 
