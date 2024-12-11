@@ -3,9 +3,35 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".nav-link").forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
       e.preventDefault();
-      document.querySelector(this.getAttribute("href")).scrollIntoView({
-        behavior: "smooth",
-      });
+
+      const target = document.querySelector(this.getAttribute("href"));
+      if (!target) return;
+
+      const targetPosition =
+        target.getBoundingClientRect().top + window.scrollY;
+      const startPosition = window.scrollY;
+      const distance = targetPosition - startPosition;
+      const duration = 1000;
+      let startTime = null;
+
+      function easeOutCubic(t) {
+        // Custom easing function for gradual slowdown
+        return 1 - Math.pow(1 - t, 3);
+      }
+
+      function scrollAnimation(currentTime) {
+        if (!startTime) startTime = currentTime;
+        const timeElapsed = currentTime - startTime;
+        const progress = Math.min(timeElapsed / duration, 1); // Ensure progress doesn't exceed 1
+        const easeProgress = easeOutCubic(progress);
+        window.scrollTo(0, startPosition + distance * easeProgress);
+
+        if (progress < 1) {
+          requestAnimationFrame(scrollAnimation);
+        }
+      }
+
+      requestAnimationFrame(scrollAnimation);
     });
   });
 
