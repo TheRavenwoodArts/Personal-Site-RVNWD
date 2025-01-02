@@ -471,7 +471,7 @@ button[type="reset"] {
 .credits-box {
   display: flex;
   background: rgba(0, 0, 0, 1);
-  border-radius: 50px;
+  border-radius: 100px;
   width: 400px;
   padding: 10px;
   margin-bottom: 5rem;

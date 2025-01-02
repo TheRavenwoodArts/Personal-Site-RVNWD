@@ -1,0 +1,8 @@
+I made this website using HTML, CSS and JavaScript!
+
+This website was built as a personal website for a final project in Intro to Web Development at 
+Portland State University.
+
+Currently the website is under construction to become the landing page for my independent game development project mentioned above!
+
+Copyright Jesse M. Ellis 2024

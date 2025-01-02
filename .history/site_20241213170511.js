@@ -104,7 +104,6 @@ document.addEventListener("DOMContentLoaded", () => {
     loadTextFromFile("text/airship.txt", "#airship-text");
     loadTextFromFile("text/jama.txt", "#jama-text");
     loadTextFromFile("text/intel.txt", "#intel-text");
-    loadTextFromFile("text/credit.txt", "#credit-text");
   });
 
   // Image carousel
